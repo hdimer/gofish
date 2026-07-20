@@ -14,6 +14,15 @@ from __future__ import annotations
 import os
 import sys
 
+# Importing readline (GNU readline, or libedit on macOS) gives input() proper
+# line editing: arrow keys, history, and backspace behave instead of echoing
+# raw escape sequences like ^[[A. Not available on every platform, so it is
+# optional.
+try:
+    import readline  # noqa: F401
+except ImportError:
+    pass
+
 import art
 import banter
 import game
